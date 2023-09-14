@@ -11,7 +11,6 @@ const CodeConverter = () => {
     const [response, setResponse] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
-
     const handleRequest = async (prompt_data, query) => {
         try {
             setIsLoading(true);
@@ -41,7 +40,6 @@ const CodeConverter = () => {
         handleRequest({ code }, 'qualityCheck');
     }
 
-
     return (
         <Box p={'20px'} minH={'100vh'} textAlign={'center'}>
             <Box h={'100vh'}>
@@ -54,6 +52,7 @@ const CodeConverter = () => {
                             <Select value={language} onChange={(e) => setLanguage(e.target.value)} bgColor={'black'} w={'50%'} color={'gray.600'} focusBorderColor='none'>
                                 <option value="">Select Language</option>
                                 <option value="python">Python</option>
+                                <option value="javascript">Javascript</option>
                                 <option value="java">Java</option>
                                 <option value="php">PHP</option>
                                 <option value="c++">C++</option>
@@ -67,15 +66,15 @@ const CodeConverter = () => {
                     <Box position={'relative'} w={{ base: '95%', sm: '95%', md: '85%', lg: '50%', xl: '50%', '2xl': '50%' }} m={'auto'}>
                         <Heading fontFamily="'Fredoka', sans-serif" pb={'25px'} size={'md'}>OUTPUT</Heading>
                         <Flex w={{ base: '95%', sm: '95%', md: '85%', lg: '50%', xl: '50%', '2xl': '50%' }} gap={'10px'} justifyContent={'space-between'} m={'0 auto 20px auto'}>
-                            <Button onClick={handleConvert} isDisabled={code ? false : true} colorScheme='blue'>Convert</Button>
+                            <Button onClick={handleConvert} isDisabled={code && language ? false : true} colorScheme='blue'>Convert</Button>
                             <Button onClick={handleDebug} isDisabled={code ? false : true} colorScheme='blue'>Debug</Button>
                             <Button onClick={handleQuality} isDisabled={code ? false : true} colorScheme='blue'>Quality Check</Button>
                         </Flex>
                         {isLoading && <Box position={'absolute'} zIndex={'overlay'} top={'50%'} right={'45%'}><Loader /></Box>}
                         <CodeBlock className={`language-${language}`}>
-                            <Box>
-                                <Textarea color={'gray.400'} className="scrollbar" readOnly value={!isLoading ? response : ''} p={'20px'} focusBorderColor='none' border={'1px inset gray'} minH={{ base: '50vh', sm: '50vh', md: '50vh', lg: '75vh', xl: '75vh', '2xl': '75vh' }} bg={'#1b252c'} placeholder={!isLoading && 'Response will be shown here...'}></Textarea>
-                            </Box>
+                        <Box>
+                            <Textarea color={'gray.400'} className="scrollbar" readOnly value={!isLoading ? response : ''} p={'20px'} focusBorderColor='none' border={'1px inset gray'} minH={{ base: '50vh', sm: '50vh', md: '50vh', lg: '75vh', xl: '75vh', '2xl': '75vh' }} bg={'#1b252c'} placeholder={!isLoading && 'Response will be shown here...'}></Textarea>
+                        </Box>
                         </CodeBlock>
                     </Box>
                 </Flex>
