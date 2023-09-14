@@ -74,7 +74,7 @@ const CodeConverter = () => {
                         {isLoading && <Box position={'absolute'} zIndex={'overlay'} top={'50%'} right={'45%'}><Loader /></Box>}
                         <CodeBlock className={`language-${language}`}>
                             <Box>
-                                <Textarea color={'gray.400'} className="scrollbar" readOnly value={response} p={'20px'} focusBorderColor='none' border={'1px inset gray'} minH={{ base: '50vh', sm: '50vh', md: '50vh', lg: '75vh', xl: '75vh', '2xl': '75vh' }} bg={'#1b252c'} placeholder={!isLoading && 'Response will be shown here...'}></Textarea>
+                                <Textarea color={'gray.400'} className="scrollbar" readOnly value={!isLoading ? response : ''} p={'20px'} focusBorderColor='none' border={'1px inset gray'} minH={{ base: '50vh', sm: '50vh', md: '50vh', lg: '75vh', xl: '75vh', '2xl': '75vh' }} bg={'#1b252c'} placeholder={!isLoading && 'Response will be shown here...'}></Textarea>
                             </Box>
                         </CodeBlock>
                     </Box>
