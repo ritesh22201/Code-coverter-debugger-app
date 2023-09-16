@@ -60,7 +60,7 @@ const CodeConverter = () => {
                             </Select>
                         </Flex>
                         <CodeBlock className={`language-${language}`}>
-                            <Textarea value={code} border={'none'} onChange={(e) => setCode(e.target.value)} p={'20px'} textDecoration={'none'} focusBorderColor='none' minH={{ base: '50vh', sm: '50vh', md: '50vh', lg: '75vh', xl: '75vh', '2xl': '75vh' }} bg={'#2a3944'} placeholder='Write your code here...'></Textarea>
+                            <Textarea className='scrollbar' color={'gray.300'} value={code} border={'none'} onChange={(e) => setCode(e.target.value)} p={'20px'} textDecoration={'none'} focusBorderColor='none' minH={{ base: '50vh', sm: '50vh', md: '50vh', lg: '75vh', xl: '75vh', '2xl': '75vh' }} bg={'#2a3944'} placeholder='Write your code here...'></Textarea>
                         </CodeBlock>
                     </Box>
                     <Box position={'relative'} w={{ base: '95%', sm: '95%', md: '85%', lg: '50%', xl: '50%', '2xl': '50%' }} m={'auto'}>
